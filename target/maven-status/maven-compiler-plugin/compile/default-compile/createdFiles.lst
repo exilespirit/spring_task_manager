@@ -1,0 +1,6 @@
+sprint_task_manager\model\Task.class
+sprint_task_manager\model\TaskRepository.class
+sprint_task_manager\model\User.class
+sprint_task_manager\GreetingController.class
+sprint_task_manager\model\UserRepository.class
+sprint_task_manager\Application.class
