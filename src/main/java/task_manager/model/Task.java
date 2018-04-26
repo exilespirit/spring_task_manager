@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tasks")
@@ -30,6 +31,9 @@ public class Task {
 
     @Column(name = "Description")
     private String description;
+
+    @Column (name = "Time")
+    private Timestamp time;
 
     public Task() {
     }
@@ -74,7 +78,14 @@ public class Task {
         this.description = description;
     }
 
+    public Timestamp getTime() {return this.time; }
 
+    public void setTime(Timestamp time) { this.time = time; }
+
+    @Override
+    public String toString() {
+        return "[id=" + this.id + ", name=" + this.type + ", username=" + this.user + ", password=" + this.title +", description=" + this.description + "]";
+    }
 
 
 }
