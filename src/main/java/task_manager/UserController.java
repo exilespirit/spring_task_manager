@@ -19,9 +19,18 @@ public class UserController {
     @Autowired
     TaskRepository taskRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     @GetMapping("/user")
-    public String user(Model model) {
-        List<Task> list = taskRepository.findAll();
+    public String user(@RequestParam(name="id", required=false, defaultValue="new") String id, Model model) {
+        model.addAttribute("id", id);
+        if (id != "new") {
+            User user = userRepository.findById(Long.parseLong(id)).get();
+            model.addAttribute("user", user);
+        }
+        //List<Task> list = taskRepository.findAll();
+        List<Task> list = taskRepository.findAllByUserId(Long.parseLong(id));
 
         model.addAttribute("tasks", list);
         return "user";

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
     //
-
+   List<Task> findAllByUserId(Long id);
     //@Query("SELECT f FROM Tasks f WHERE LOWER(f.name) = LOWER(:name)")
    // Task findByName(@Param("name") String name);
 }
