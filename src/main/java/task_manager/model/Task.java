@@ -1,5 +1,7 @@
 package task_manager.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tasks")
@@ -33,7 +36,8 @@ public class Task {
     private String description;
 
     @Column (name = "Time")
-    private Timestamp time;
+    @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime time;
 
     public Task() {
     }
@@ -78,9 +82,9 @@ public class Task {
         this.description = description;
     }
 
-    public Timestamp getTime() {return this.time; }
+    public LocalDateTime getTime() {return this.time; }
 
-    public void setTime(Timestamp time) { this.time = time; }
+    public void setTime(LocalDateTime time) { this.time = time; }
 
     @Override
     public String toString() {

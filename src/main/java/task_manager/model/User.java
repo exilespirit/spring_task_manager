@@ -21,6 +21,12 @@ public class User {
     @Column(name = "Password")
     private String password;
 
+    @Column(name = "Email")
+    private String email;
+
+    @Column
+    private String role;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Task> tasks = new HashSet<Task>();
 
@@ -55,6 +61,14 @@ public class User {
         return password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -65,6 +79,14 @@ public class User {
 
     public void setTasks(Set<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
